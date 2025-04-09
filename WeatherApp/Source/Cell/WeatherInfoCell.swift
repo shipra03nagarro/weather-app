@@ -15,6 +15,7 @@ class WeatherInfoCell: UITableViewCell {
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var iconView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,5 +28,12 @@ class WeatherInfoCell: UITableViewCell {
         speedLabel.text = configurable.windSpeedText
         humidityLabel.text = configurable.humidityText
         descLabel.text = configurable.descriptionText
+
+        if let iconUrlString = configurable.iconUrlString,
+            let url = URL(string: iconUrlString) {
+            ImageDownloader.shared.downloadImage(from: url) { [weak self] image in
+                self?.iconView.image = image
+            }
+        }
     }
 }

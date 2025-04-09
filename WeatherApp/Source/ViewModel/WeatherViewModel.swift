@@ -49,4 +49,8 @@ extension WeatherViewModel {
     func getForecast() -> [WeatherResponse.ForecastDay] {
         return forecast
     }
+
+    func clearForecast() {
+        forecast = []
+    }
 }

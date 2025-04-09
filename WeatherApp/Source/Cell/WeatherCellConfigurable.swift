@@ -11,6 +11,7 @@ protocol WeatherCellConfigurable {
     var windSpeedText: String { get }
     var humidityText: String { get }
     var descriptionText: String { get }
+    var iconUrlString: String? { get }
 }
 
 extension WeatherResponse.ForecastDay: WeatherCellConfigurable {
@@ -32,5 +33,12 @@ extension WeatherResponse.ForecastDay: WeatherCellConfigurable {
 
     var descriptionText: String {
         return day.condition.text
+    }
+
+    var iconUrlString: String? {
+        // Construct the full URL for the weather icon
+        let baseURL = "https:"
+        let iconCode = day.condition.icon
+        return baseURL + iconCode
     }
 }

@@ -16,68 +16,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eok-qA-IeJ">
-                                <rect key="frame" x="20" y="76" width="353" height="28.666666666666671"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bXq-qz-G39">
-                                <rect key="frame" x="186" y="416" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="vs8-gH-rSP">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bXq-qz-G39">
+                                <rect key="frame" x="178" y="432.66666666666669" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="6lL-0P-Nfo">
+                                <rect key="frame" x="0.0" y="70" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="06J-lE-RFU"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-oF-Pao">
-                                <rect key="frame" x="20" y="124.66666666666669" width="353" height="550"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="146" width="393" height="706"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="hl8-RH-HXo"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jpz-VH-eai"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3L-e0-Snj">
-                                <rect key="frame" x="151.66666666666666" y="694.66666666666663" width="90" height="39.333333333333371"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Search">
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="21"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="searchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jas-ko-RVZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hdL-oF-Pao" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7zD-yH-XgD"/>
-                            <constraint firstItem="Eok-qA-IeJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="76" id="AN7-S4-2Qo"/>
-                            <constraint firstItem="R3L-e0-Snj" firstAttribute="top" secondItem="hdL-oF-Pao" secondAttribute="bottom" constant="20" id="Cqm-O1-sJL"/>
-                            <constraint firstItem="R3L-e0-Snj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FSc-PI-UTp"/>
-                            <constraint firstItem="Eok-qA-IeJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="JWx-ac-YJ5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R3L-e0-Snj" secondAttribute="bottom" constant="50" id="Mg4-fR-Q1c"/>
-                            <constraint firstItem="hdL-oF-Pao" firstAttribute="top" secondItem="Eok-qA-IeJ" secondAttribute="bottom" constant="20" id="TGC-69-ct8"/>
-                            <constraint firstAttribute="trailing" secondItem="Eok-qA-IeJ" secondAttribute="trailing" constant="20" id="ewA-cf-exx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hdL-oF-Pao" secondAttribute="trailing" constant="20" id="qL3-Rj-16b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hdL-oF-Pao" secondAttribute="trailing" id="46a-Qj-Ujl"/>
+                            <constraint firstItem="6lL-0P-Nfo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="70" id="5m3-h9-FSB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vs8-gH-rSP" secondAttribute="trailing" id="Arv-WW-8g1"/>
+                            <constraint firstAttribute="bottom" secondItem="hdL-oF-Pao" secondAttribute="bottom" id="Kim-cg-dDG"/>
+                            <constraint firstAttribute="bottom" secondItem="vs8-gH-rSP" secondAttribute="bottom" id="RVh-Pq-m3a"/>
+                            <constraint firstItem="hdL-oF-Pao" firstAttribute="top" secondItem="6lL-0P-Nfo" secondAttribute="bottom" constant="20" id="YBs-1f-l3Y"/>
+                            <constraint firstItem="vs8-gH-rSP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yze-bS-Acc"/>
+                            <constraint firstItem="hdL-oF-Pao" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aN9-gF-hTz"/>
+                            <constraint firstItem="6lL-0P-Nfo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="blG-Fx-wCG"/>
+                            <constraint firstItem="bXq-qz-G39" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dx3-QM-PAh"/>
+                            <constraint firstItem="vs8-gH-rSP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kp1-vS-x8K"/>
+                            <constraint firstItem="bXq-qz-G39" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nnt-LP-RxC"/>
+                            <constraint firstItem="6lL-0P-Nfo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vYg-Iz-zkq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="bXq-qz-G39" id="mWJ-Ie-kZ0"/>
-                        <outlet property="cityTextField" destination="Eok-qA-IeJ" id="s6l-e3-iBl"/>
+                        <outlet property="searchBar" destination="6lL-0P-Nfo" id="5eh-hK-wj2"/>
                         <outlet property="tableView" destination="hdL-oF-Pao" id="tvW-Gv-WRu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="4"/>
+            <point key="canvasLocation" x="90.839694656488547" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="417" height="626"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

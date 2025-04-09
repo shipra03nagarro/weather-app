@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // IBOutlets
-    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
@@ -29,18 +29,21 @@ class ViewController: UIViewController {
         // Configure table view
         tableView.dataSource = self
         tableView.delegate = self
+
+        // Configure Search bar
+        configureSearchBar()
     }
 
-    @IBAction func searchButtonTapped(_ sender: UIButton) {
-        guard let city = cityTextField.text, !city.isEmpty else {
-            showAlert(title: "Error", message: "Please enter a city name.")
-            return
-        }
-        // Show the loading indicator while fetching data
-        activityIndicator.startAnimating()
+    func configureSearchBar() {
+        searchBar.delegate = self
 
-        // Fetch weather data
-        viewModel.fetchWeatherReport(for: city)
+        // Remove the background image of the search bar
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+
+        // Set the background color and style of the search text field
+        // UI customization (Only for testing or sample projects)
+        // it is not recommended to directly modify properties of UIKit components
+        searchBar.searchTextField.backgroundColor = .white
     }
 
     func showAlert(title: String, message: String) {
@@ -74,6 +77,40 @@ extension ViewController: WeatherViewDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+
+        guard let city = searchBar.text, !city.isEmpty else {
+            showAlert(title: "Error", message: "Please enter a city name.")
+            return
+        }
+
+        // Start loading indicator
+        activityIndicator.startAnimating()
+
+        // Fetch weather
+        viewModel.fetchWeatherReport(for: city)
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            // Clear data in view model and reload table
+            viewModel.clearForecast()
+            tableView.reloadData()
+        }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+
+        // Clear data in view model and reload table
+        viewModel.clearForecast()
+        tableView.reloadData()
     }
 }
 

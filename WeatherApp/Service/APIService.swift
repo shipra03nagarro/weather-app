@@ -63,6 +63,13 @@ final class APIService: APIServiceProtocol {
                 return
             }
 
+            // Log the response data (can be useful for debugging, but avoid in production)
+                       if let responseString = String(data: data, encoding: .utf8) {
+                           print("Response Body: \(responseString)")
+                       } else {
+                           print("Failed to convert response data to string.")
+                       }
+
             // Decode the response data
             do {
                 let decodedData = try JSONHandler.decode(from: data, as: T.self)
