@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherInfoCell" rowHeight="177" id="3Wy-O0-cb2" customClass="WeatherInfoCell" customModule="WeatherApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="177"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Wy-O0-cb2" id="06I-10-v5y">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="177"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GfN-fN-p5o">
+                        <rect key="frame" x="10" y="5" width="388" height="167"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-p9-2mV" userLabel="Date">
+                                <rect key="frame" x="0.0" y="0.0" width="388" height="25.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxT-6n-F7l" userLabel="Temp">
+                                <rect key="frame" x="0.0" y="35.333333333333336" width="388" height="25.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa0-RH-nLR" userLabel="Speed">
+                                <rect key="frame" x="0.0" y="70.666666666666671" width="388" height="25.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q20-8G-rmK" userLabel="Humid">
+                                <rect key="frame" x="0.0" y="106.33333333333333" width="388" height="25.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FN-I6-ZRd" userLabel="Text">
+                                <rect key="frame" x="0.0" y="141.66666666666666" width="388" height="25.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="GfN-fN-p5o" secondAttribute="trailing" constant="10" id="491-kO-gSJ"/>
+                    <constraint firstItem="GfN-fN-p5o" firstAttribute="top" secondItem="06I-10-v5y" secondAttribute="top" constant="5" id="7Bl-Lz-MgX"/>
+                    <constraint firstAttribute="bottom" secondItem="GfN-fN-p5o" secondAttribute="bottom" constant="5" id="Rn3-wo-KZ2"/>
+                    <constraint firstItem="GfN-fN-p5o" firstAttribute="leading" secondItem="06I-10-v5y" secondAttribute="leading" constant="10" id="Syi-V2-3Yf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="2dy-p9-2mV" id="aaU-OA-Ph6"/>
+                <outlet property="descLabel" destination="5FN-I6-ZRd" id="lzx-rc-qrh"/>
+                <outlet property="humidityLabel" destination="Q20-8G-rmK" id="ajz-DO-xiO"/>
+                <outlet property="speedLabel" destination="fa0-RH-nLR" id="VaX-dS-HD0"/>
+                <outlet property="tempLabel" destination="mxT-6n-F7l" id="9cB-qf-EIh"/>
+            </connections>
+            <point key="canvasLocation" x="574.04580152671758" y="53.87323943661972"/>
+        </tableViewCell>
+    </objects>
+</document>
