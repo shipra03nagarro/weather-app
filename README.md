@@ -8,6 +8,7 @@ WeatherApp is an iOS application that provides real-time weather information and
 * Features
 * Requirements
 * Architecture
+* Folder Structure
 * How to Use
 * Assumptions
 * API Reference
@@ -39,6 +40,38 @@ Model: Defines data structures and parses weather data from the WeatherAPI.
 View: UI layer that displays current weather and forecasts. Observes the ViewModel for updates.
 ViewModel: Connects View and Model. Handles data fetching, formatting, and user interactions.
 Service Layer: Manages API requests and networking logic via WeatherService.
+```
+
+
+## Folder Structure
+
+```bash
+WeatherApp/
+├── AppDelegate.swift
+├── Assets.xcassets/
+├── Info.plist
+├── LaunchScreen.storyboard
+├── Main.storyboard
+├── Constant/
+│   └── AppConstant.swift
+├── Manager/
+│   └── ImageDownloader.swift
+├── Service/
+│   └── APIService.swift
+│   └── JSONHandler.swift
+├── Source/
+│   ├── Cell/
+│   │   └── WeatherInfoCell.swift
+│   ├── Model/
+│   │   └── WeatherRequest.swift
+│   │   └── WeatherResponse.swift
+│   ├── ViewModel/
+│   │   └── WeatherViewModel.swift
+│   └── ViewController/
+│       └── WeatherViewController.swift
+├── WeatherAppTests/
+│   └── WeatherServiceTest.swift
+│   └── MockResponse.swift
 ```
   
 ## How to Use
