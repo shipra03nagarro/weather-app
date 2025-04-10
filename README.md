@@ -7,7 +7,9 @@ WeatherApp is an iOS application that provides real-time weather information and
 ## Table of Contents
 * Features
 * Requirements
+* Architecture
 * How to Use
+* Assumptions
 * API Reference
 * Installation
 * Tech Stack
@@ -26,14 +28,35 @@ WeatherApp is an iOS application that provides real-time weather information and
 * Xcode 16.3 or later
 * Swift 5 or later
 * Network connectivity is needed to fetch weather data.
-  
 
+
+## Architecture
+* MVVM
+```bash
+WeatherApp uses the Model-View-ViewModel (MVVM) architecture for better separation of concerns, testability, and scalability.It improves code organization, makes business logic easy to test, and enables reusability of components.
+
+Model: Defines data structures and parses weather data from the WeatherAPI.
+View: UI layer that displays current weather and forecasts. Observes the ViewModel for updates.
+ViewModel: Connects View and Model. Handles data fetching, formatting, and user interactions.
+Service Layer: Manages API requests and networking logic via WeatherService.
+```
+  
 ## How to Use
 * **Open the app**:Launch the WeatherApp on your iOS device or simulator.
 * **Tap on the search bar**:Once the app is open, you’ll see a search bar at the top of the screen.
 * **Type the city name**:Tap the search bar and enter the name of the city for which you want to get the weather information.
 * **Search**:After typing the city name, press "Search" on the keyboard to fetch the weather data for that city.
 * **View weather details**:The app will display the current weather information (temperature, wind speed, humidity, etc.) for the selected city, along with a 5-day weather forecast.
+
+
+## Assumptions
+
+* **Internet Connectivity**: The app assumes that the user has an active internet connection to fetch real-time weather data.
+* **API Availability**: The app relies on the WeatherAPI being available and functioning correctly.
+* **Device Location**: Automatic location-based weather data is not yet implemented.
+* **WeatherAPI Key**: An API key from WeatherAPI is required for fetching weather data.
+* **Units of Measurement**: Temperature and wind speed units are displaying Celsius and kph.
+
 
 
 ## API Reference
